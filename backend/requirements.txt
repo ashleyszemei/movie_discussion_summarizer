@@ -1,0 +1,8 @@
+praw
+langchain
+python-dotenv
+pydantic
+langchain-community
+langchain-google-genai
+fastapi
+uvicorn
