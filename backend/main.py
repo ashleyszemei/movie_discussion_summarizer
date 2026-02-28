@@ -6,12 +6,21 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain.agents import create_agent
 from langchain.agents.structured_output import ToolStrategy
-from tools import get_reddit_comments
+from tools import get_movies, get_reddit_comments, get_poster_url
 from system_prompt import system_prompt
+import markdown
 
 app = FastAPI()
 
 # -------------------- Models --------------------
+class Movie(BaseModel):
+    title: str
+    url: str
+    poster_url: str
+
+class Movies(BaseModel):
+    movies: list[Movie]
+
 class AgentResponse(BaseModel):
     """Summary of Reddit comments."""
     summary: str
@@ -36,6 +45,13 @@ app.add_middleware(
 @app.get("/")
 def root():
     return {"message": "Hello World"}
+
+@app.get("/movies", response_model=Movies)
+def load_movies():
+
+    movies = get_movies()
+
+    return Movies(movies=movies)
 
 @app.post("/summarize")
 def summarize_comments(request: SummarizerRequest):
@@ -64,6 +80,8 @@ def summarize_comments(request: SummarizerRequest):
 
         #print(result["structured_response"])
         summary = result["structured_response"].summary
+
+        summary = markdown.markdown(summary)
 
     except Exception as e:
         print(f">> Error running LLM agent: {e}")

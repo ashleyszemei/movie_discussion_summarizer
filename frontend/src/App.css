@@ -41,6 +41,44 @@
   color: #888;
 }
 
-.summary {
+p {
+  font-size: 1em;
+}
+
+input, button {
+  font-size: 1em;
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
+button {
+  background-color: #18bc9c;
+  color: white;
+  transition: background-color 0.15s ease-in-out;
+}
+
+  button:hover {
+    background-color: #14a085;
+  }
+
+  button:active {
+    background-color: #13967d;
+  }
+
+.page-section {
+  margin-bottom: 1.5em;
+  padding: 1em;
+}
+
+.form-section {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.summary-section {
   text-align: left;
+}
+
+.movie-card {
+  cursor: pointer;
 }

@@ -10,6 +10,10 @@ system_prompt = """
         Extract the title of the movie from the title of the Reddit post.
     Step 4:
         Generate a summary of the comments. In your summary, you may cover commentor's opinions on the following topics: visuals, screenwriting, actor performances, memorable scenes and characters.
+        Format key takeaways in bold using Markdown and output the summary using the following format:
+        ### 🎬 <Title of the movie>
+
+        <Content of the summary>
     Step 5:
         Respond in the following format:
             summary: <The generated summary.>

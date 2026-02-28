@@ -1,25 +1,28 @@
 import React, { useState } from 'react';
 
-const MovieForm = ({ generateSummary }) => {
-  const [url, resetUrl] = useState('');
+const MovieForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    var url = props.url;
     if (url) {
-      generateSummary(url);
-      resetUrl('');
+      props.generateSummary(url);
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={url}
-        onChange={(e) => resetUrl(e.target.value)}
-        placeholder="Enter URL"
-      />
-      <button type="submit">Generate Summary</button>
+      <div className="form-section">
+        <input
+          style={{ flexGrow:"1", marginRight:"0.5em" }}
+          type="text"
+          value={props.url}
+          onChange={(e) => resetUrl(e.target.value)}
+          placeholder="Select a movie from the list"
+          disabled
+        />
+        <button type="submit">Generate Summary</button>
+      </div>
     </form>
   );
 };
