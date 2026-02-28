@@ -6,12 +6,12 @@ import CardMedia from '@mui/material/CardMedia';
 
 export default function OutlinedCard(props) {
   return (
-    <Box sx={{ minWidth: 275 }}>
+    <Box sx={{ minWidth: 140 }}>
             <Card variant="outlined" className="movie-card" onClick={props.onClick} url={props.url}>
                 <React.Fragment>
                     <CardMedia
                       sx={{ 
-                        height: 400,
+                        height: 200,
                         backgroundPosition: 'center'
                        }}
                       image={props.poster_url}

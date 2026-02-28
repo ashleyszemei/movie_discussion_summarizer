@@ -47,6 +47,7 @@ const SummarySection = () => {
     .then(function(response) {
       setIsLoadingSumm(false);
       showSummary(response.data.summary);
+      setUrl("Select a movie from the list");
     })
     .catch(function(error) {
       setIsLoadingSumm(false);
@@ -68,9 +69,10 @@ const SummarySection = () => {
     <div>
       <div className="page-section">
         { isLoadingMov && <Spinner text="Loading movies..."/>}
-        <Grid container spacing={2}>
+        <Grid container spacing={1}>
           {movies.map((movie, index) => (
-            <Grid key={index} size={3}>
+            // <Grid key={index} size={3}>
+            <Grid key={index} >
               <MovieCard 
                 url={movie.url}
                 title={movie.title}
