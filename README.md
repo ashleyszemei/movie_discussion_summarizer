@@ -1,8 +1,8 @@
 # 🎬 r/movies Discussion Summarizer
 This web app uses the **Reddit API** to fetch the 8 most recent official discussion threads from [r/movies](https://www.reddit.com/r/movies/) on Reddit. When the user selects a movie, the app uses **Google Gemini** to generate a summary of the discussion thread for that movie.
-## Demo
+<br/><br/>
 <img width="1888" height="867" alt="Screenshot 2026-02-28 191527" src="https://github.com/user-attachments/assets/dc7f807c-7cff-487d-8512-773f908ff06d" />
-
+## Demo
 
 *To be updated.*
 
