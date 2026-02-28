@@ -6,7 +6,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain.agents import create_agent
 from langchain.agents.structured_output import ToolStrategy
-from tools import get_movies, get_reddit_comments, get_poster_url
+from tools import get_movies, get_reddit_comments
 from system_prompt import system_prompt
 import markdown
 
